@@ -1,0 +1,5 @@
+import java.io.BufferedReader;
+
+public class ReadThread extends Thread{
+	private BufferedReader  in;
+}

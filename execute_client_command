@@ -1,0 +1,13 @@
+#!/bin/bash
+
+########################################
+######## Radu Sorin-Gabriel ############
+######## Grupa 410 - M1 ################
+########################################
+
+# Execut comanda data ca primul argument si pun rezultatul
+# in fisierul dat ca al doilea argument
+eval $1 &> $2
+# Scriu statusul comenzii in fisierul dat ca al doilea argument
+echo $? >> $2
+

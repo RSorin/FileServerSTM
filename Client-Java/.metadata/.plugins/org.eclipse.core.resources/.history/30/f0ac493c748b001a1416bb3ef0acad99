@@ -1,0 +1,45 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class ReadThread extends Thread{
+	private BufferedReader  in;
+	private boolean stop = false;
+
+	public ReadThread(BufferedReader in) {
+		this.in = in;
+	}
+	
+	@Override
+	public void run()
+	{
+		while (true) 
+		{
+			char[] buffer = new char[1024];
+	        int read;
+	        try {
+				while (true)
+				{
+					read = in.read(buffer);
+					if (read != -1)
+					{
+						String result = new String(buffer, 0, read);
+						System.out.println(result);
+						if (buffer[read] == '\0')
+							break;
+					}
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("da");
+	}
+	
+	public void stopThread()
+	{
+		stop = true;	
+	}
+	
+	
+}
